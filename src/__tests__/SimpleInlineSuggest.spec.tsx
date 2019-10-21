@@ -10,7 +10,7 @@ describe('<SimpleInlineSuggest />', () => {
     const wrapper = shallow(
       <InlineSuggest value="john" suggestions={simpleUsers} />
     );
-    expect(wrapper.find('input').props().value).toBe('john');
+    expect(wrapper.find('Input').props().value).toBe('john');
   });
 
   it('does change a value via props', () => {
@@ -20,6 +20,6 @@ describe('<SimpleInlineSuggest />', () => {
     wrapper.setProps({
       value: 'xmazu'
     });
-    expect(wrapper.find('input').props().value).toBe('xmazu');
+    expect(wrapper.find('Input').props().value).toBe('xmazu');
   });
 });
