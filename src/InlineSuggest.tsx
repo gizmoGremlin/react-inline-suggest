@@ -34,6 +34,7 @@ export interface Props<T = string> {
 export interface State {
   activeIndex: number;
   focused: boolean;
+  valueToSuggestFrom: string;
   value: string;
 }
 
@@ -48,6 +49,7 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
   state = {
     activeIndex: -1,
     focused: false,
+    valueToSuggestFrom: '',
     value: ''
   }
 
@@ -90,8 +92,16 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
     const valueFromEvent = e.currentTarget.value;
     const { getSuggestionValue, suggestions, ignoreCase } = this.props;
 
+    let valueToSuggestFrom = valueFromEvent
+
+    if (valueFromEvent.includes(' ')) {
+        const words = valueFromEvent.split(' ')
+        const lastWord = words[words.length - 1]
+        valueToSuggestFrom = lastWord
+    }
+
     const newMatchedArray = this.memoizedFilterSuggestions(
-      valueFromEvent,
+      valueToSuggestFrom,
       suggestions,
       Boolean(ignoreCase),
       getSuggestionValue
@@ -99,7 +109,8 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
 
     this.setState({
       activeIndex: newMatchedArray.length > 0 ? 0 : -1,
-      value: valueFromEvent
+      valueToSuggestFrom: valueToSuggestFrom,
+      value: valueFromEvent,
     });
     this.fireOnChange(valueFromEvent);
   };
@@ -165,11 +176,23 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
         ? this.props.getSuggestionValue(matchedValue)
         : String(matchedValue);
 
+      let wholeString = newValue
+
+      if (this.state.value.includes(' ')) {
+          const words = this.state.value.split(' ')
+
+          // replace last word
+          words[words.length - 1] = newValue
+
+          // add space at end, to not re-trigger the suggestion
+          wholeString = words.join(' ')
+      }
+
       this.setState({
-        value: newValue
+        value: wholeString + ' '
       });
 
-      this.fireOnChange(newValue);
+      this.fireOnChange(wholeString);
 
       if (this.props.onMatch) {
         this.props.onMatch(matchedValue);
@@ -179,7 +202,7 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
 
   private getMatchedSuggestions = () => {
     return this.memoizedFilterSuggestions(
-      this.state.value,
+      this.state.valueToSuggestFrom,
       this.props.suggestions,
       Boolean(this.props.ignoreCase),
       this.props.getSuggestionValue
@@ -199,7 +222,7 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
             matchedSuggestions[this.state.activeIndex]
           )
         : String(matchedSuggestions[this.state.activeIndex]),
-      this.state.value
+      this.state.valueToSuggestFrom
     );
   };
 }
