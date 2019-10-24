@@ -24,8 +24,6 @@ or
 npm install react-inline-suggest --save
 ```
 
-Include `react-inline-suggest.css` from `node_modules/react-inline-suggest/dist` in your project.
-
 ## Demo and examples
 Live demo: [xmazu.github.io/react-inline-suggest](https://xmazu.github.io/react-inline-suggest/)
 
@@ -43,8 +41,8 @@ const users = [
   },
   {
     id: 2,
-    username: 'john_doe',
-    email: 'john@doe.com'
+    username: 'adam_tombleson',
+    email: 'adam.tombleson@gmail.com'
   }
 ];
 
@@ -59,13 +57,13 @@ class ExampleApp extends React.Component {
 
   render() {
     return (
-      <InlineSuggest 
-        haystack={users}
+      <InlineSuggest
+        suggestions={users}
         value={this.state.value}
         onChange={this.onChangeValue}
         onMatch={v => console.log(v)}
         ignoreCase={false}
-      />        
+      />
     );
   }
 
@@ -83,16 +81,17 @@ Component extends `React.HTMLProps<HTMLInputElement>` interface and adds some ow
 | Property                 | Type    |   Default | Required | Description                                                                                                          |
 |--------------------------|---------|----------:|----------|----------------------------------------------------------------------------------------------------------------------|
 | value                    | any     | undefined | yes      | initial field value                                                                                                  |
-| haystack                 | array   | undefined | yes      | Array of available items to search in. Items can take an arbitrary shape.                                            |
+| suggestions              | array   | undefined | yes      | Array of available items to search in. Items can take an arbitrary shape.                                            |
 | onChange                 | func    | undefined | yes      | onChange handler: function(e: React.FormEvent) {}                                                                    |
 | onMatch                  | func    | undefined |          | Called when Tab/Enter/Right Arrow pressed or value matches fully                                                     |
-| getFn                    | func    | undefined |          | Used to read the display value from each entry in haystack: function(item: any): string {}                           |
+| getFn                    | func    | undefined |          | Used to read the display value from each entry in suggestions: function(item: any): string {}                        |
 | ignoreCase               | boolean |      true |          | Determines whether the case-sensitivity is relevant                                                                  |
 | shouldRenderSuggestion   | func    | undefined |          | When typing, this function will be called to consult when to render the suggestion. function(value: any): boolean {} |
 | switchBetweenSuggestions | boolean | false     |          | Set it to `true` if you would like to switch between suggestions using Up/Down arrows                                |
+| placeholder              | string  | undefined |          | Input placeholder text                                                                                               |
 
 ## Typings
-If you are using [TypeScript](https://www.typescriptlang.org/), you don't have to install typings - they are provided in npm package.
+If you are using [TypeScript](https://www.typescriptlang.org/), you don't have to install typings - they are provided in the npm package.
 
 ## Development
 
