@@ -7,6 +7,7 @@ export interface Props<T = string> {
     ignoreCase?: boolean;
     inputValue?: string;
     placeholder?: string;
+    name?: string;
     navigate?: boolean;
     shouldRenderSuggestion?: ShouldRenderSugestionFn;
     suggestions: T[];

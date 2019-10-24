@@ -15,6 +15,7 @@ const StyledInput = styled.input`
 
 export interface InputProps {
   value: string;
+  name?: string;
   placeholder?: string;
   onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
   onChange(e: React.FormEvent<HTMLInputElement>): void;

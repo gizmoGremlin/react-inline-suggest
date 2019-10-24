@@ -24,6 +24,7 @@ export interface Props<T = string> {
   ignoreCase?: boolean;
   inputValue?: string;
   placeholder?: string;
+  name?: string;
   navigate?: boolean;
   shouldRenderSuggestion?: ShouldRenderSugestionFn;
   suggestions: T[];
@@ -66,6 +67,7 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
 
   render() {
     const {
+      name,
       placeholder,
       className,
       shouldRenderSuggestion,
@@ -79,6 +81,7 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
           onBlur={this.handleOnBlur}
           onKeyDown={this.handleOnKeyDown}
           onKeyUp={this.handleOnKeyUp}
+          name={name}
           placeholder={placeholder}
         />
         <Suggestion
@@ -153,6 +156,7 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
       (keyCode === KeyEnum.DOWN_ARROW || keyCode === KeyEnum.UP_ARROW)
     ) {
       const matchedSuggestions = this.getMatchedSuggestions();
+
       this.setState({
         activeIndex:
           keyCode === KeyEnum.DOWN_ARROW
