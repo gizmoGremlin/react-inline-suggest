@@ -6,6 +6,7 @@ export interface Props<T = string> {
     getSuggestionValue?: GetSuggestionValueFn<T>;
     ignoreCase?: boolean;
     inputValue?: string;
+    placeholder?: string;
     navigate?: boolean;
     shouldRenderSuggestion?: ShouldRenderSugestionFn;
     suggestions: T[];

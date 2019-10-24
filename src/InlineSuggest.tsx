@@ -23,6 +23,7 @@ export interface Props<T = string> {
   getSuggestionValue?: GetSuggestionValueFn<T>;
   ignoreCase?: boolean;
   inputValue?: string;
+  placeholder?: string;
   navigate?: boolean;
   shouldRenderSuggestion?: ShouldRenderSugestionFn;
   suggestions: T[];
@@ -64,19 +65,26 @@ export class InlineSuggest<T> extends React.Component<Props<T>, State> {
   private memoizedFilterSuggestions = memoize(filterSuggestions);
 
   render() {
+    const {
+      placeholder,
+      className,
+      shouldRenderSuggestion,
+    } = this.props
+
     return (
-      <Wrapper className={this.props.className}>
+      <Wrapper className={className}>
         <Input
           value={this.state.value}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
           onKeyDown={this.handleOnKeyDown}
           onKeyUp={this.handleOnKeyUp}
+          placeholder={placeholder}
         />
         <Suggestion
           value={this.state.value}
           needle={this.getNeedle()}
-          shouldRenderSuggestion={this.props.shouldRenderSuggestion}
+          shouldRenderSuggestion={shouldRenderSuggestion}
         />
       </Wrapper>
     );
