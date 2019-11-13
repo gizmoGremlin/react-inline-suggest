@@ -3,17 +3,16 @@
   "version": "2.1.0",
   "description": "A simple inline autosuggest input",
   "author": {
-    "name": "Maciej Kański",
-    "email": "xmazu@yahoo.com"
+    "name": "Zegal"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xmazu/react-inline-suggest"
+    "url": "https://github.com/zegal/react-inline-suggest"
   },
   "bugs": {
-    "url": "https://github.com/xmazu/react-inline-suggest/issues"
+    "url": "https://github.com/zegal/react-inline-suggest/issues"
   },
-  "homepage": "https://xmazu.github.io/react-inline-suggest/",
+  "homepage": "https://zegal.github.io/react-inline-suggest/",
   "license": "MIT",
   "keywords": [
     "react",
