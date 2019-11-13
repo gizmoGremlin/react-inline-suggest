@@ -1,4 +1,5 @@
 import { GetSuggestionValueFn } from './types';
+import escapeRegExp from 'lodash.escaperegexp'
 
 export function filterSuggestions<T>(
   value: string,
@@ -10,7 +11,7 @@ export function filterSuggestions<T>(
     return [];
   }
 
-  const rx = RegExp(`^${value}`, ignoreCase ? 'i' : undefined);
+  const rx = RegExp(`^${escapeRegExp(value)}`, ignoreCase ? 'i' : undefined);
   return suggestions.filter(suggestion =>
     getSuggestionValue
       ? rx.test(getSuggestionValue(suggestion))
