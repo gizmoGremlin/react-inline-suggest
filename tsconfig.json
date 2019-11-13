@@ -1,23 +1,48 @@
 {
   "compilerOptions": {
-    "outDir": "./lib",
-    "target": "es2015",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "lib": ["dom", "es6", "es7"],
-    "rootDir": "src",
-    "removeComments": true,
-    "declaration": true,
-    "sourceMap": true,
+    "outDir": "lib",
+    "target": "es5",
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "es2017",
+      "dom"
+    ],
+    "strict": false,
+    "sourceMap": false,
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,
+    "declaration": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "downlevelIteration": true,
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "types": [
+      "react",
+      "jest",
+      "node"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "*.d.ts",
+    "**/*.d.ts"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
 }
