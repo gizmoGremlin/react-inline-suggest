@@ -1,6 +1,5 @@
 # React Inline Suggest
 [![npm version](https://badge.fury.io/js/react-inline-suggest.svg)](https://badge.fury.io/js/react-inline-suggest)
-[![Build Status](https://travis-ci.org/xmazu/react-inline-suggest.svg?branch=master)](https://travis-ci.org/xmazu/react-inline-suggest)
 
 > [React](http://facebook.github.io/react/index.html) component for a search input inline suggestions.
 
@@ -25,7 +24,7 @@ npm install react-inline-suggest --save
 ```
 
 ## Demo and examples
-Live demo: [xmazu.github.io/react-inline-suggest](https://xmazu.github.io/react-inline-suggest/)
+[Live demo](https://xmazu.github.io/react-inline-suggest/)
 
 ## Basic usage
 
