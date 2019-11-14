@@ -1,6 +1,6 @@
 {
   "name": "@zegal/react-inline-suggest",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A simple inline autosuggest input",
   "author": "Zegal Developers",
   "repository": {
@@ -22,6 +22,7 @@
     "react-inline-suggest"
   ],
   "files": [
+    "lib",
     "LICENSE"
   ],
   "types": "./lib/index.d.ts",
