@@ -1,18 +1,16 @@
 {
   "name": "@zegal/react-inline-suggest",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A simple inline autosuggest input",
-  "author": {
-    "name": "Zegal"
-  },
+  "author": "Zegal Developers",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zegal/react-inline-suggest"
+    "url": "git+https://github.com/zegal/react-inline-suggest.git"
   },
   "bugs": {
     "url": "https://github.com/zegal/react-inline-suggest/issues"
   },
-  "homepage": "https://zegal.github.io/react-inline-suggest/",
+  "homepage": "https://github.com/zegal/react-inline-suggest",
   "license": "MIT",
   "keywords": [
     "react",
@@ -59,15 +57,18 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "git-directory-deploy": "^1.5.1",
     "jest": "^23.6.0",
-    "lodash.memoize": "^4.1.2",
-    "react": "^16.6.0",
-    "react-dom": "^16.0.0",
     "rimraf": "^2.6.1",
-    "styled-components": "^4.4.0",
     "ts-jest": "^23.10.5",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "lodash.escaperegexp": "^4.1.2",
+    "lodash.memoize": "^4.1.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.0.0",
+    "styled-components": "^4.4.0"
   },
   "peerDependencies": {
     "react": ">=16.0",
@@ -101,7 +102,7 @@
       }
     }
   },
-  "dependencies": {
-    "lodash.escaperegexp": "^4.1.2"
+  "directories": {
+    "lib": "lib"
   }
 }
